@@ -1,0 +1,12 @@
+# Chặn file nặng 1.2GB (QUAN TRỌNG)
+*.safetensors
+*.bin
+*.pth
+
+# Chặn file rác Python
+__pycache__/
+*.pyc
+
+# Chặn môi trường ảo
+venv/
+.env

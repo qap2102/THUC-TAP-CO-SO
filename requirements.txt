@@ -1,0 +1,16 @@
+# Phân tích & Xử lý dữ liệu
+pandas>=2.0.0
+numpy>=1.24.0
+tqdm>=4.65.0
+openpyxl>=3.1.0
+
+# Thu thập dữ liệu & NLP
+requests>=2.31.0
+beautifulsoup4>=4.12.0
+underthesea>=6.0.0
+
+# Học máy (Deep Learning - Tuần 5)
+torch>=2.0.0
+transformers>=4.30.0
+sentencepiece>=0.1.99
+scikit-learn>=1.2.0
