@@ -10,3 +10,11 @@ __pycache__/
 # Chặn môi trường ảo
 venv/
 .env
+
+# Bỏ qua toàn bộ thư mục chứa model nặng
+models/
+# Bỏ qua các file checkpoint trong quá trình train
+checkpoint-*/
+# Bỏ qua thư mục ảo của python
+__pycache__/
+.ipynb_checkpoints/
