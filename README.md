@@ -13,69 +13,48 @@ Dự án thuộc học phần **Thực tập cơ sở** - Học viện Công ngh
 # File Tree: THUC-TAP-CO-SO
 
 
-```
-├── 📁 Documents
-│   ├── 📁 FinalReport
-│   │   └── ⚙️ .gitkeep
-│   ├── 📁 MidtermReport
-│   │   └── 📕 B23DCCN044_MidtermReport .pdf
-│   ├── 📁 WeeklyReports
-│   │   ├── ⚙️ .gitkeep
-│   │   ├── 📕 B23DCCN044_04-04-2026.pdf
-│   │   ├── 📕 B23DCCN044_07-03-2026.pdf
-│   │   ├── 📕 B23DCCN044_14-03-2026.pdf
-│   │   ├── 📕 B23DCCN044_21-03-2026.pdf
-│   │   └── 📕 B23DCCN044_28-03-2026.pdf
-│   └── ⚙️ .gitkeep
-├── 📁 SourceCode
-│   ├── 📁 data
-│   │   ├── 📁 processed
-│   │   │   ├── 📄 data_report.csv
-│   │   │   └── 📄 train_data.csv
-│   │   └── 📁 raw
-│   │       └── 📄 gold_data_wikipedia.txt
-│   ├── 📁 models
-│   │   └── 📁 vit5_checkpoints
-│   │       ├── ⚙️ config.json
-│   │       ├── ⚙️ generation_config.json
-│   │       ├── 📄 model.safetensors
-│   │       ├── 🐍 model_init.py
-│   │       ├── ⚙️ tokenizer.json
-│   │       ├── ⚙️ tokenizer_config.json
-│   │       └── ⚙️ training_args.bin
-│   ├── 📁 notebooks
-│   │   └── 📄 01_eda_tokenizer.ipynb
-│   ├── 📁 resources
-│   │   └── 📄 dictionary.txt
-│   ├── 📁 src
-│   │   ├── 🐍 __init__.py
-│   │   ├── 🐍 build_dict.py
-│   │   ├── 🐍 data_processor.py
-│   │   ├── 🐍 data_scraper.py
-│   │   └── 🐍 noising_system.py
-│   ├── ⚙️ .gitkeep
-│   ├── 🐍 data_pipeline.py
-│   └── 🐍 main.py
-├── ⚙️ .dockerignore
-├── ⚙️ .gitattributes
-├── 🐳 Dockerfile
-├── 📝 README.md
-└── 📄 requirements.txt
+```text
+THUC-TAP-CO-SO/
+├── .idea/                      # Cấu hình IDE (PyCharm/WebStorm)
+├── Documents/                  # Tài liệu báo cáo môn học
+│   ├── FinalReport/            # Báo cáo cuối kỳ
+│   ├── MidtermReport/           # Báo cáo giữa kỳ
+│   └── WeeklyReports/          # Các báo cáo tiến độ hàng tuần
+├── SourceCode/                 # Mã nguồn triển khai dự án
+│   ├── data/                   # Thư mục chứa dữ liệu thô và dữ liệu xử lý
+│   ├── notebooks/              # Jupyter Notebooks huấn luyện và thử nghiệm
+│   │   ├── 01_train_model.ipynb
+│   │   └── 02-output.ipynb
+│   ├── src/                    # Mã nguồn ứng dụng giao diện chính
+│   │   ├── .gradio/            # File tạm/Cấu hình của giao diện Gradio
+│   │   └── app.py              # File chạy ứng dụng web giao diện (Gradio App)
+│   └── visuals/                # Thư mục lưu trữ biểu đồ, hình ảnh trực quan
+├── .dockerignore               # Các file loại trừ khi build Docker
+├── .gitattributes              # Cấu hình thuộc tính Git (LFS, line endings)
+├── .gitignore                  # Các file bỏ qua không commit lên GitHub
+├── Dockerfile                  # Cấu hình đóng gói ứng dụng với Docker
+├── README.md                   # Tài liệu hướng dẫn dự án
+└── requirements.txt            # Danh sách các thư viện Python cần thiết
 ```
 
 
-## 🛠 Hướng dẫn cài đặt & Chạy (Setup Guide)
+---
 
-1. Sử dụng Docker (Khuyên dùng cho Cloud/DevOps)
-Phương pháp này đảm bảo môi trường đồng nhất, sẵn sàng triển khai trên VPS/Cloud.
+## Hướng dẫn cài đặt và chạy
 
-Bước 1: Build Docker Image
-$ docker build -t spelling-app .
+### 1. Clone repository
+```bash
+git clone https://github.com/qap2102/THUC-TAP-CO-SO
+cd THUC-TAP-CO-SO
+```
 
-Bước 2: Chạy hệ thống & Đồng bộ dữ liệu
-$ docker run -v "${PWD}/SourceCode:/app/SourceCode" spelling-app
-(Dữ liệu huấn luyện sinh ra sẽ tự động xuất hiện trong thư mục SourceCode/data)
+### 2. Cài đặt thư viện
+```bash
+pip install -r SourceCode/requirements.txt
+```
 
-2. Sử dụng Python Local
-Bước 1: Cài đặt thư viện: $ pip install -r requirements.txt
-Bước 2: Chạy script: $ python SourceCode/main.py
+### 3. Chạy ứng dụng giao diện chính (Gradio Web App):
+
+```bash
+python SourceCode/src/app.py
+```
